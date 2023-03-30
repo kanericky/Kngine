@@ -1,0 +1,3 @@
+[submodule "Kingine/vender/spdlog"]
+	path = Kingine/vender/spdlog
+	url = https://github.com/gabime/spdlog
