@@ -19,13 +19,17 @@ project "Kingine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "kepch.h"
+	pchsource "Kingine/src/kepch.cpp"
+
 	files{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs{
-		"%{prj.name}//vender/spdlog/include"
+		"Kingine/vender/spdlog/include",
+		"Kingine/src"
 	}
 
 	filter "system:windows"

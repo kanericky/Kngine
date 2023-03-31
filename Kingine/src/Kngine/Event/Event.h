@@ -1,10 +1,7 @@
 #pragma once
 
-#include "Kngine\Core.h"
-
-#include <string>
-#include <functional>
-
+#include "kepch.h"
+#include "Kngine/Core.h"
 
 namespace Kngine {
 
@@ -13,7 +10,7 @@ namespace Kngine {
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
 		KeyPressed, KeyReleased,
-		MouseButtoPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	enum EventCategory {
@@ -51,6 +48,8 @@ namespace Kngine {
 		bool m_handled = false;
 	};
 
+
+
 	class EventDispatcher {
 
 		template<typename T>
@@ -72,5 +71,9 @@ namespace Kngine {
 		Event& m_Event;
 
 	};
+
+	inline std::ostream& operator <<(std::ostream& os, const Event& e) {
+		return os << e.ToString();
+	}
 
 }
